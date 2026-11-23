@@ -39,7 +39,7 @@ async function register(req, res) {
             }
         });
     
-    } catch {error} {
+    } catch (error) {
         return res.status(500).json({
             message: error.message
         });
@@ -51,7 +51,7 @@ async function login(req, res) {
         const { email, password } = req.body;
 
         if (!email || !password) {
-            return res.json(400).json({
+            return res.status(400).json({
                 message: "Email dan password wajib diisi."
             });
         }
